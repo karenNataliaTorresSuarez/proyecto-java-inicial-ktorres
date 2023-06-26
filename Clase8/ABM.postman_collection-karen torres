@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "28a8209d-0766-4532-b44c-9b96adfb1ab3",
+		"name": "ABM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "27612084",
+		"_collection_link": "https://grey-sunset-137795.postman.co/workspace/curso-Java~8d406e7b-5190-4b36-87fa-f6d479595bf3/collection/27612084-28a8209d-0766-4532-b44c-9b96adfb1ab3?action=share&creator=27612084&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "Agregar cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Camila\",\r\n    \"lastname\": \"Callejon\",\r\n    \"docnumber\": \"4444444\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/client"
+					},
+					"response": []
+				},
+				{
+					"name": "get Client",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Invoice",
+			"item": [
+				{
+					"name": "Post Invoice",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"client_id\": 1,\r\n    \"product_list\":[ \r\n    {\r\n        \"productId\":1,\r\n        \"quantity\":4\r\n    },\r\n    {\r\n        \"productId\":2,\r\n        \"quantity\":2\r\n    },\r\n    {\r\n        \"productId\":3,\r\n        \"quantity\":1\r\n    }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/invoice"
+					},
+					"response": []
+				},
+				{
+					"name": "Get invoice by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\":{\r\n        \"invoice_id\":1,\r\n        \"client_id\": 1,\r\n        \"created_at\": \"Sat Jun 24 22:41:45 UYT 2023\",\r\n        \"total\":113.0,\r\n        \r\n        \"details\":[\r\n            {\r\n                \"title\": \"Titulo del producto\",\r\n                \"description\":\"Descripcion Producto\",\r\n                \"code\":\"A00001\",\r\n                \"price\":\"55.5\",\r\n                \"quantity\":4\r\n            },\r\n            {\r\n                \"title\": \"Titulo del producto \",\r\n                \"description\":\"Descripcion Producto2\",\r\n                \"code\":\"A00002\",\r\n                \"price\":\"25.5\",\r\n                \"quantity\":2\r\n            },\r\n            {\r\n                \"title\": \"Titulo del producto \",\r\n                \"description\":\"Descripcion Producto2\",\r\n                \"code\":\"A00003\",\r\n                \"price\":\"25.5\",\r\n                \"quantity\":1\r\n            }\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/invoice/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Invoices By Client Id",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\":{\r\n        \"invoice_id\":1,\r\n        \"client_id\": 1,\r\n        \"created_at\": \"Sat Jun 24 22:41:45 UYT 2023\",\r\n        \"total\":113.0,\r\n        \r\n        \"details\":[\r\n            {\r\n                \"title\": \"Titulo del producto\",\r\n                \"description\":\"Descripcion Producto\",\r\n                \"code\":\"A00001\",\r\n                \"price\":\"55.5\",\r\n                \"quantity\":4\r\n            },\r\n            {\r\n                \"title\": \"Titulo del producto \",\r\n                \"description\":\"Descripcion Producto2\",\r\n                \"code\":\"A00002\",\r\n                \"price\":\"25.5\",\r\n                \"quantity\":2\r\n            },\r\n            {\r\n                \"title\": \"Titulo del producto \",\r\n                \"description\":\"Descripcion Producto2\",\r\n                \"code\":\"A00003\",\r\n                \"price\":\"25.5\",\r\n                \"quantity\":1\r\n            }\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/invoice/getInvoicesByClientId/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "agergar producto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"nombre del Producto\",\r\n    \"description\": \"descripcion del producto\",\r\n    \"code\": \"A00006\",\r\n    \"price\": 40.5,\r\n    \"stock\": 400\r\n    \r\n}"
+						},
+						"url": "{{url}}/product"
+					},
+					"response": []
+				},
+				{
+					"name": "Get product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"title\": \"nombre del Producto\",\r\n    \"description\": \"descripcion del producto\",\r\n    \"code\": \"A00006\",\r\n    \"price\": 40.5,\r\n    \"stock\": 400\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/product/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product List",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
